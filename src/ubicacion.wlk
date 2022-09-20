@@ -26,3 +26,4 @@ class Lugar inherits Ubicacion{
 //Necesitamos que:
 //-Usuarios tengan una ubicacion,
 //-Contenido tenga ubicacion
+//AAAA
