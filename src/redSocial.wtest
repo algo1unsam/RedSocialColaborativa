@@ -1,0 +1,49 @@
+import redSocial.*
+
+describe "test de la red social" {
+
+const juan = new Usuario(cantSeguidores = 2)
+const pedro = new Usuario(cantSeguidores = 3)
+const maria = new Usuario(cantSeguidores = 2)
+const olga = new Usuario(cantSeguidores = 0)
+
+
+
+test "la cantidad total de seguidores" {
+
+	redSocial.agregarUsuario(pedro)
+	redSocial.agregarUsuario(maria)
+	redSocial.agregarUsuario(juan)
+	assert.equals(7, redSocial.cantidadSeguidores())
+
+}
+
+test "el usuario con mas seguidores" {
+
+	redSocial.agregarUsuario(pedro)
+	redSocial.agregarUsuario(maria)
+	redSocial.agregarUsuario(juan)
+	assert.equals(pedro, redSocial.mayorCantidadSeguidores())
+
+}
+
+test "todos tienen seguidores" {
+
+	redSocial.agregarUsuario(pedro)
+	redSocial.agregarUsuario(maria)
+	redSocial.agregarUsuario(juan)
+	assert.that(redSocial.todosTienenSeguidores())
+
+}
+
+test "no todos tienen seguidores" {
+
+	redSocial.agregarUsuario(pedro)
+	redSocial.agregarUsuario(olga)
+	redSocial.agregarUsuario(juan)
+	assert.notThat(redSocial.todosTienenSeguidores())
+
+}
+
+}
+

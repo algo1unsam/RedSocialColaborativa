@@ -1,0 +1,31 @@
+import permisos.*
+
+describe "permisos "{
+
+const permisoSoloParaCrear = new Permiso(crear = true,ver = false)
+const permisoParaTodo = new Permiso(crear = true, editar = true, borrar = true)
+
+const invitado = new TipoDeUsuario(
+	fotos = permisoSoloParaCrear,
+	publicaciones = permisoSoloParaCrear
+)
+
+const usuario = new TipoDeUsuario(
+    fotos = new Permiso(),
+    publicaciones = new Permiso(crear = true, editar = true)
+)
+
+const administrador = new TipoDeUsuario (
+    fotos = permisoParaTodo,
+    publicaciones = permisoParaTodo
+)
+
+
+
+test "testX" {
+
+	assert.that(administrador)
+
+}
+}
+}

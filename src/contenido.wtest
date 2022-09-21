@@ -1,0 +1,28 @@
+import contenido.*
+
+describe " tests de contenido" {
+	const videoDeMiAbuelita = new Video(duracion = 10, ubicacion = new U)
+   const imagenDeGatito = new Imagen(filtro = true,pie= "gatitos!!!")
+
+test "reproduccion de contenido una sola vez" {
+
+	videoDeMiAbuelita.reproducir() 
+	assert.equals(1, videoDeMiAbuelita.cantidadReproducciones())
+
+}
+
+test "reproduccion de contenido dos veces " {
+
+	videoDeMiAbuelita.reproducir() 
+	videoDeMiAbuelita.reproducir() 
+	assert.equals(2, videoDeMiAbuelita.cantidadReproducciones())
+
+}
+
+
+test "imagen interesante" {
+	10.times{x=> imagenDeGatito.likear()}
+	assert.that(imagenDeGatito.interesante() )
+	}	
+
+}

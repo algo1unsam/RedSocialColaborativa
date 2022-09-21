@@ -1,5 +1,6 @@
 class Ubicacion{
 	const property coordenadas = [0,0] //vector de coordenadas (-123,15)
+
 	method estaCercaDe(ubicacion,tolerancia){
 		return self.distanciaA(ubicacion)<tolerancia
 	} //ya sea la ubicacion de un usuario o de un lugar, devuelve un booleano
@@ -14,6 +15,8 @@ class Ubicacion{
 }
 
 class Lugar inherits Ubicacion{
+	var valoracion  = 0
+	
 	const property nombre = null //Nombre completo del lugar
 	//tipoDeLugar es si es shopping, facultad, hospital, parque, etc.
 	const tipoDeLugar = null //Por ahora creemos que todos los lugares se comportan igual, entonces no armamos mas clases.
