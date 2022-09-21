@@ -11,6 +11,9 @@ class Ubicacion{
 		return listaDeLugares.min({lugar=>self.distanciaA(lugar)})
 	}
 	
+	method valorar(){
+			}
+	
 	
 }
 
@@ -21,6 +24,9 @@ class Lugar inherits Ubicacion{
 	//tipoDeLugar es si es shopping, facultad, hospital, parque, etc.
 	const tipoDeLugar = null //Por ahora creemos que todos los lugares se comportan igual, entonces no armamos mas clases.
 	
+	method valorar() {
+		valoracion = valoracion + 1
+	}
 }
 
 // unsam = new ubicacion()

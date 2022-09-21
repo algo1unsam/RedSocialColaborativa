@@ -10,6 +10,7 @@ class Contenido{
 
 	method likear(){
 		likes = likes + 1
+		ubicacion.valorar()
 	}
 	
 //	method publicar()	
@@ -34,6 +35,9 @@ class Imagen inherits Contenido{
 		pie = _param
 		
 	}
+	method serVisto(){
+		self.likear()
+	}
 	
 	
 }
@@ -45,7 +49,7 @@ class Video inherits Contenido{
 	var property cantReproducciones = 0
 	
 	//cuando el usuario reproduce incremento cantidad de reproducciones
-	method reproducir(){
+	method serVisto(){
 		cantReproducciones = cantReproducciones +1
 	}
 	

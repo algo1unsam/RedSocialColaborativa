@@ -22,7 +22,7 @@ class UsuarioAnonimo {
 class UsuarioPublico inherits UsuarioAnonimo{
     const property ubicacion
     const  contenidos = []
-    const property cantidadDeSeguidores
+    const property cantSeguidores
 
     method crearContenido(contenido){
         //redsocial.subirContenido()
