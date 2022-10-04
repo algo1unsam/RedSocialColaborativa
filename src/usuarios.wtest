@@ -1,0 +1,62 @@
+import usuarios.*
+import ubicacion.*
+import permisos.*
+
+describe "tests de usuarios" {
+
+const charly = new Usuario(permisos = permisoPublicacion, ubicacion = new Ubicacion())
+const fredy = new Usuario(permisos = sinPermisoPublicacion, ubicacion = new Ubicacion())
+const afa = new UsuarioInstitucional(permisos = permisoPublicacion, ubicacion = new Ubicacion())
+
+const ana = new Usuario(permisos = permisoPublicacion, ubicacion = new Ubicacion())
+
+
+test "usuario sin permiso da error al publicar video" {
+	assert.throwsExceptionWithType(
+		new PermisoException(message=""), {fredy.publicarVideo(10)}
+	)
+}
+
+test "usuario sin permiso en realidad no publica" {	
+	fredy.publicarImagen(10)
+	assert.notThat(fredy.publicoAlgo())
+
+}
+
+test "usuario con permiso puntaje algo publica igual" {	
+	ana.publicarVideo(100)
+	ana.permisos(permisoPuntajeAlto)
+	ana.publicarImagen("hola")
+	assert.equals(2,ana.cantPublicaciones())
+
+}
+
+
+
+test "usaurio comun publica y tiene puntaje bajo" {
+
+	charly.publicarVideo(10)
+	charly.publicarImagen("hola")
+	
+	assert.equals((130 + 300)/2, charly.puntaje())
+
+}
+
+test "usaurio institucional publica y tiene puntaje algo" {
+	afa.serSeguidoPor(charly)
+	afa.publicarVideo(10)
+	afa.publicarImagen("hola")
+	
+	assert.equals((130 + 600)/2 + 5, afa.puntaje())
+
+}
+
+test "usaurio comun no permite seguidores" {
+	assert.throwsExceptionWithType(
+		new UsuarioException(message=""), {charly.serSeguidoPor(afa)}
+	)
+	
+}
+
+
+}

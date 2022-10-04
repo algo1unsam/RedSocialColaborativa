@@ -1,27 +1,28 @@
 import contenido.*
+import ubicacion.*
 
 describe " tests de contenido" {
-	const videoDeMiAbuelita = new Video(duracion = 10, ubicacion = new U)
-   const imagenDeGatito = new Imagen(filtro = true,pie= "gatitos!!!")
+	const videoDeMiAbuelita = new Video(duracion = 10, ubicacion = new Ubicacion())
+   const imagenDeGatito = new Imagen(filtro = true,pie= "gatitos!!!", ubicacion = new Ubicacion())
 
 test "reproduccion de contenido una sola vez" {
 
-	videoDeMiAbuelita.reproducir() 
+	videoDeMiAbuelita.serVisto() 
 	assert.equals(1, videoDeMiAbuelita.cantidadReproducciones())
 
 }
 
 test "reproduccion de contenido dos veces " {
 
-	videoDeMiAbuelita.reproducir() 
-	videoDeMiAbuelita.reproducir() 
+	videoDeMiAbuelita.serVisto() 
+	videoDeMiAbuelita.serVisto() 
 	assert.equals(2, videoDeMiAbuelita.cantidadReproducciones())
 
 }
 
 
 test "imagen interesante" {
-	10.times{x=> imagenDeGatito.likear()}
+	10.times{x=> imagenDeGatito.serVisto()}
 	assert.that(imagenDeGatito.interesante() )
 	}	
 

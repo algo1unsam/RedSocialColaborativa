@@ -1,9 +1,20 @@
+class PermisoException inherits Exception{}
+
 class Permiso {
-    const property crear = false
-    const property editar = false
-    const property borrar = false
-    const property ver = true
+    const property publicar = false
+   // const property ver = true
+    
+    method dejaPublicar(alguien) = publicar
 }
+
+
+object permisoPuntajeAlto inherits Permiso {
+	
+    override method dejaPublicar(alguien) 
+    	= alguien.puntaje() > 500 || super(alguien)
+}
+
+
 
 class TipoDeUsuario {
     const property fotos 

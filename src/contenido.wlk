@@ -16,9 +16,7 @@ class Contenido{
 //	method publicar()	
 	
 	method interesante() =  likes >= 10
-	
-	
-	
+
 }
 
 
